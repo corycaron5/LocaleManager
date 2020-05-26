@@ -5,9 +5,11 @@ import java.io.FilenameFilter;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map.Entry;
+import java.util.Set;
 import java.util.UUID;
 
 import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.plugin.java.JavaPlugin;
 
 public class LocaleManager {
 
@@ -77,7 +79,7 @@ public class LocaleManager {
 	 * @param locale The locale to set the message
 	 * @param key The key for this message
 	 * @param message The localized message
-	 * @return
+	 * @return The previous message if one existed
 	 */
 	public String setMessage(String locale, String key, String message){
 		LocaleConfig config = locales.get(locale);
@@ -116,8 +118,8 @@ public class LocaleManager {
 	}
 	
 	/**
-	 * Unregister the specified LocaleConfig object
-	 * @param config LocaleConfig to unregister
+	 * Unregister the specified LocaleConfig
+	 * @param localeName The locale to unregister
 	 * @return The LocaleConfig if it was registered
 	 */
 	public LocaleConfig unregisterLocale(String localeName){
@@ -136,7 +138,7 @@ public class LocaleManager {
 			}
 			
 		};
-		File[] files = new File(Main.getPlugin(Main.class).getDataFolder(), "locales").listFiles(filter);
+		File[] files = new File(JavaPlugin.getProvidingPlugin(LocaleManager.class).getDataFolder(), "locales").listFiles(filter);
 		for(File file : files){
 			registerLocale(new CsvConfig(file.getName().replace(".csv", "")));
 		}
@@ -154,7 +156,7 @@ public class LocaleManager {
 			}
 			
 		};
-		File[] files = new File(Main.getPlugin(Main.class).getDataFolder(), "locales").listFiles(filter);
+		File[] files = new File(JavaPlugin.getProvidingPlugin(LocaleManager.class).getDataFolder(), "locales").listFiles(filter);
 		for(File file : files){
 			registerLocale(new YamlConfig(file.getName().replace(".yml", "")));
 		}
