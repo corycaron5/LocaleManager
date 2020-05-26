@@ -16,7 +16,7 @@ public class Main extends JavaPlugin {
 	//Create the LocaleManager instance and register the login event 
 	public void onEnable(){
 		localeMan = new LocaleManager("en_ca");
-		Bukkit.getPluginManager().registerEvents(new LoginEvent(), this);
+		Bukkit.getPluginManager().registerEvents(new LoginEvent(localeMan), this);
 	}
 	
 	//Save player locale selections
