@@ -68,7 +68,7 @@ public final class CsvUtil {
 	 * @throws IOException If unable to read or create the specified config
 	 */
 	public static List<String> getConfig(String name, String subdirectory)throws IOException {
-		File dir = new File(Main.getPlugin(Main.class).getDataFolder() + File.separator + subdirectory);
+		File dir = new File(JavaPlugin.getProvidingPlugin(CsvUtil.class).getDataFolder() + File.separator + subdirectory);
 		if (!dir.isDirectory()) {
 			dir.mkdirs();
 		}
@@ -87,7 +87,7 @@ public final class CsvUtil {
 	 * @throws IOException If unable to save the specified config to file
 	 */
 	public static void saveConfig(List<String> messages, String name, String subdirectory) throws IOException {
-		File dir = new File(Main.getPlugin(Main.class).getDataFolder() + File.separator + subdirectory);
+		File dir = new File(JavaPlugin.getProvidingPlugin(CsvUtil.class).getDataFolder() + File.separator + subdirectory);
 		if (!dir.isDirectory()) {
 			dir.mkdirs();
 		}
@@ -103,11 +103,11 @@ public final class CsvUtil {
 	 * @throws IOException If unable to read or create the specified config
 	 */
 	public static List<String> getConfig(String name) throws IOException {
-		File dir = Main.getPlugin(Main.class).getDataFolder();
+		File dir = JavaPlugin.getProvidingPlugin(CsvUtil.class).getDataFolder();
 		if (!dir.isDirectory()) {
 			dir.mkdirs();
 		}
-		File file = new File(Main.getPlugin(Main.class).getDataFolder(), name + ".csv");
+		File file = new File(JavaPlugin.getProvidingPlugin(CsvUtil.class).getDataFolder(), name + ".csv");
 		if (!file.exists()) {
 			file.createNewFile();
 		}
@@ -121,7 +121,7 @@ public final class CsvUtil {
 	 * @throws IOException If unable to save the specified config to file
 	 */
 	public static void saveConfig(List<String> messages, String name) throws IOException {
-		File file = new File(Main.getPlugin(Main.class).getDataFolder(), name + ".csv");
+		File file = new File(JavaPlugin.getProvidingPlugin(CsvUtil.class).getDataFolder(), name + ".csv");
 		writeConfig(file, messages);
 	}
 	
@@ -176,7 +176,7 @@ public final class CsvUtil {
 		if (!dir.isDirectory()) {
 			dir.mkdirs();
 		}
-		File file = new File(Main.getPlugin(Main.class).getDataFolder(), name + ".csv");
+		File file = new File(JavaPlugin.getProvidingPlugin(CsvUtil.class).getDataFolder(), name + ".csv");
 		if (!file.exists()) {
 			file.createNewFile();
 		}
