@@ -58,7 +58,7 @@ public final class YamlUtil {
 	 * @throws IOException If unable to read or create the specified config
 	 */
 	public static FileConfiguration getConfig(String name, String subdirectory)throws IOException {
-		File dir = new File(Main.getPlugin(Main.class).getDataFolder() + File.separator + subdirectory);
+		File dir = new File(JavaPlugin.getProvidingPlugin(YamlUtil.class).getDataFolder() + File.separator + subdirectory);
 		if (!dir.isDirectory()) {
 			dir.mkdirs();
 		}
@@ -77,7 +77,7 @@ public final class YamlUtil {
 	 * @throws IOException If unable to save the specified config to file
 	 */
 	public static void saveConfig(FileConfiguration config, String name, String subdirectory) throws IOException {
-		File dir = new File(Main.getPlugin(Main.class).getDataFolder() + File.separator + subdirectory);
+		File dir = new File(JavaPlugin.getProvidingPlugin(YamlUtil.class).getDataFolder() + File.separator + subdirectory);
 		if (!dir.isDirectory()) {
 			dir.mkdirs();
 		}
@@ -93,11 +93,11 @@ public final class YamlUtil {
 	 * @throws IOException If unable to read or create the specified config
 	 */
 	public static FileConfiguration getConfig(String name) throws IOException {
-		File dir = Main.getPlugin(Main.class).getDataFolder();
+		File dir = JavaPlugin.getProvidingPlugin(YamlUtil.class).getDataFolder();
 		if (!dir.isDirectory()) {
 			dir.mkdirs();
 		}
-		File file = new File(Main.getPlugin(Main.class).getDataFolder(), name + ".yml");
+		File file = new File(JavaPlugin.getProvidingPlugin(YamlUtil.class).getDataFolder(), name + ".yml");
 		if (!file.exists()) {
 			file.createNewFile();
 		}
@@ -111,7 +111,7 @@ public final class YamlUtil {
 	 * @throws IOException If unable to save the specified config to file
 	 */
 	public static void saveConfig(FileConfiguration config, String name) throws IOException {
-		File file = new File(Main.getPlugin(Main.class).getDataFolder(), name + ".yml");
+		File file = new File(JavaPlugin.getProvidingPlugin(YamlUtil.class).getDataFolder(), name + ".yml");
 		config.save(file);
 	}
 	
@@ -166,7 +166,7 @@ public final class YamlUtil {
 		if (!dir.isDirectory()) {
 			dir.mkdirs();
 		}
-		File file = new File(Main.getPlugin(Main.class).getDataFolder(), name + ".yml");
+		File file = new File(JavaPlugin.getProvidingPlugin(YamlUtil.class).getDataFolder(), name + ".yml");
 		if (!file.exists()) {
 			file.createNewFile();
 		}
