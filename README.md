@@ -24,9 +24,11 @@ Save player locale selections back to file on disable
 
 localeMan.savePlayerLocales();
 #
-To retrieve localized messages use the method LocaleManager#getPlayerMessage(UUID, String)
+To retrieve localized messages, use the method LocaleManager#getPlayerMessage(UUID, String)
 
 These messages are not ChatColor translated so you'll need to use ChatColor#translateAlternateColorCodes(String)
+
+To change a player's current locale, use LocaleManager#setPlayerLocale(UUID, String)
 #
 Translated configs should be in either CSV format in key,value pairs or YAML format where whole config is scanned and the deep key is used as the key and its value is the message
 All configs in the plugin data folder under the subdirectory "locales" will automatically be read into memory upon initializing the LocaleManager class
