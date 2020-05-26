@@ -33,6 +33,15 @@ To change a player's current locale, use LocaleManager#setPlayerLocale(UUID, Str
 Translated configs should be in either CSV format in key,value pairs or YAML format where whole config is scanned and the deep key is used as the key and its value is the message
 All configs in the plugin data folder under the subdirectory "locales" will automatically be read into memory upon initializing the LocaleManager class
 
+# Maven
+Repository: <url>https://raw.githubusercontent.com/me.cory.localization/LocaleManager/repo/</url>
+    
+groupId: me.cory.localization
+
+artifactID: LocaleManager
+
+version: 1.0.0
+
 # Legal
 Do whatever the hell you'd like with this. 
 No credit required.
