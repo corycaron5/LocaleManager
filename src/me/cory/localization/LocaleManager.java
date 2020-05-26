@@ -53,6 +53,14 @@ public class LocaleManager {
 	}
 	
 	/**
+	 * List the names of all registered locales
+	 * @return A set of all registered locale names
+	 */
+	public Set<String> listLocales(){
+		return locales.keySet();
+	}
+	
+	/**
 	 * Gets the localized message
 	 * @param locale The locale to get the message
 	 * @param key The key to check
